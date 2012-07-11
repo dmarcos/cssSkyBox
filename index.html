@@ -1,0 +1,55 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+
+  <title>The CSS cube</title>
+  <meta name="description" content="">
+
+  <!-- Mobile viewport optimized: h5bp.com/viewport -->
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href='http://browsehappy.com/'>Upgrade to a different browser</a> or <a href='http://www.google.com/chromeframe/?redirect=true'>install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+  <header>
+
+  </header>
+  <div id="viewport" role="main">
+
+  </div>
+  <footer>
+
+  </footer>
+
+  <script>window.jQuery || document.write('<script src="js/jquery-1.7.2.min.js"><\/script>')</script>
+  <script src="js/cssCube.js"></script>
+  <script type="text/javascript">
+  var panoramaVisible = false;
+  var cssCube = new Cube();
+
+  $(function() {
+    cssCube.render('viewport');
+   // cssCube.loadImages('/images/panorama/front.png', '/images/panorama/back.png', 
+     //                  '/images/panorama/top.png', '/images/panorama/right.png',
+       //                '/images/panorama/bottom.png', '/images/panorama/left.png');
+  });
+
+  $(document).keypress(function(e) {
+    if(e.which == 112) { // p key pressed
+      if (!panoramaVisible) {
+        cssCube.showImages();
+      } else {
+        cssCube.hideImages();
+      }
+      panoramaVisible = !panoramaVisible;
+    }
+  });
+  </script>
+
+</body>
+</html>
